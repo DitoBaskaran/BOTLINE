@@ -42,22 +42,23 @@ sys.setdefaultencoding('utf-8')
 helpMessage =""" [D.B] BOT Menu V.2  􀔃􀄆red check mark􏿿
 
 􀔃􀅕red arrow right􏿿 Command Public
-[Bot?]     Cek Akun Bot
+[Bot?] Cek Akun Bot
 [Jam Update] Update jam Bot
 [Id Group] Cek Id Group
-[Ginfo]    Group Info
-[Mid RA]   Cek All mid Bot
-[RA 1/2/3/4] Cek Mid Bot
-[Respon]   Cek Respon Bot
+[Ginfo] Group Info
+[All Mid] Cek All mid Bot
+[Dito 1/2/3/4] Cek Mid Bot
+[Respon] Cek Respon Bot
 [Speedbot] Cek Kecepatan Bot
-[Up]       Fungsi Spam Chat
-[Banlist]  Cek List Akun Banned
+[Up] Fungsi Spam Chat
+[Banlist] Cek List Akun Banned
 [Gn namagroup] Ganti Nama Group
 [Cancel] Cancel User Masuk Group
-[Tag All]      Mention Semua User
+[Tag All] Mention Semua User
 [Set View] Cek Privasi Group
-[Open Url]  Membuka Url Group
+[Open Url] Membuka Url Group
 [Close Url] Menutup Url Group
+[Gn namagrup] Mengganti Nama Grup
 
 􀔃􀅕red arrow right􏿿 Command Private
 [SetGroup] Menggatur Privasi Grup
@@ -176,6 +177,7 @@ def bot(op):
                if op.param2 not in Bots:
                   random.choice(KAC).cancelGroupInvitation(op.param1,[op.param3])
                   random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                  kk.sendText(msg.to,"Jangan Asal Invite!")
         #------Invite User Kick Finish------#
 
         if op.type == 13:
@@ -552,23 +554,24 @@ def bot(op):
                     X = cl.getGroup(msg.to)
                     X.name = msg.text.replace("Gn ","")
                     cl.updateGroup(X)
+                    cl.sendText(msg.to,"Nama Grup Berhasil Di Ganti!")
                 else:
                     cl.sendText(msg.to,"It can't be used besides the group.")
-            elif ("Cv1 gn " in msg.text):
+            elif ("Dito1 gn " in msg.text):
                 if msg.toType == 2:
                     X = cl.getGroup(msg.to)
                     X.name = msg.text.replace("Cv1 gn ","")
                     ki.updateGroup(X)
                 else:
                     ki.sendText(msg.to,"It can't be used besides the group.")
-            elif ("Cv2 gn " in msg.text):
+            elif ("Dito2 gn " in msg.text):
                 if msg.toType == 2:
                     X = cl.getGroup(msg.to)
                     X.name = msg.text.replace("Cv2 gn ","")
                     kk.updateGroup(X)
                 else:
                     kk.sendText(msg.to,"It can't be used besides the group.")
-            elif ("Cv3 gn " in msg.text):
+            elif ("Dito3 gn " in msg.text):
                 if msg.toType == 2:
                     X = cl.getGroup(msg.to)
                     X.name = msg.text.replace("Cv3 gn ","")
@@ -578,28 +581,28 @@ def bot(op):
             elif "Kick " in msg.text:
                 midd = msg.text.replace("Kick ","")
                 cl.kickoutFromGroup(msg.to,[midd])
-            elif "Cv1 kick " in msg.text:
+            elif "Dito1 kick " in msg.text:
                 midd = msg.text.replace("Cv1 kick ","")
                 ki.kickoutFromGroup(msg.to,[midd])
-            elif "Cv2 kick " in msg.text:
+            elif "Dito2 kick " in msg.text:
                 midd = msg.text.replace("Cv2 kick ","")
                 kk.kickoutFromGroup(msg.to,[midd])
-            elif "Cv3 kick " in msg.text:
+            elif "Dito3 kick " in msg.text:
                 midd = msg.text.replace("Cv3 kick ","")
                 kc.kickoutFromGroup(msg.to,[midd])
             elif "Invite " in msg.text:
                 midd = msg.text.replace("Invite ","")
                 cl.findAndAddContactsByMid(midd)
                 cl.inviteIntoGroup(msg.to,[midd])
-            elif "Cv1 invite " in msg.text:
+            elif "Dito1 invite " in msg.text:
                 midd = msg.text.replace("Cv1 invite ","")
                 ki.findAndAddContactsByMid(midd)
                 ki.inviteIntoGroup(msg.to,[midd])
-            elif "Cv2 invite " in msg.text:
+            elif "Dito2 invite " in msg.text:
                 midd = msg.text.replace("Cv2 invite ","")
                 kk.findAndAddContactsByMid(midd)
                 kk.inviteIntoGroup(msg.to,[midd])
-            elif "Cv3 invite " in msg.text:
+            elif "Dito3 invite " in msg.text:
                 midd = msg.text.replace("Cv3 invite ","")
                 kc.findAndAddContactsByMid(midd)
                 kc.inviteIntoGroup(msg.to,[midd])
@@ -856,18 +859,18 @@ def bot(op):
                         cl.sendText(msg.to,"Not for use less than group")
             elif "Id Group" == msg.text:
                 kk.sendText(msg.to,msg.to)
-            elif "Mid RA" == msg.text:
+            elif "All Mid" == msg.text:
                 cl.sendText(msg.to,mid)
                 ki.sendText(msg.to,Amid)
                 kk.sendText(msg.to,Bmid)
                 kc.sendText(msg.to,Cmid)
-            elif "RA 1" == msg.text:
+            elif "Dito 1" == msg.text:
                 cl.sendText(msg.to,mid)
-            elif "RA 2" == msg.text:
+            elif "Dito 2" == msg.text:
                 ki.sendText(msg.to,Amid)
-            elif "RA 3" == msg.text:
+            elif "Dito 3" == msg.text:
                 kk.sendText(msg.to,Bmid)
-            elif "RA 4" == msg.text:
+            elif "Dito 4" == msg.text:
                 kc.sendText(msg.to,Cmid)
             elif msg.text in ["Wkwkwk","Wkwk","Wk","wkwkwk","wkwk","wk"]:
                 msg.contentType = 7
@@ -1647,17 +1650,19 @@ def bot(op):
                         except:
                             pass
          #----------------Fungsi Banned Kick Target Finish----------------------#                
-            elif "Cleanse" in msg.text:
+            elif "Kick : On" in msg.text:
               if msg.from_ in admin:
                 if msg.toType == 2:
                     print "ok"
-                    _name = msg.text.replace("Cleanse","")
+                    _name = msg.text.replace("Kick : On","")
                     gs = ki.getGroup(msg.to)
                     gs = kk.getGroup(msg.to)
                     gs = kc.getGroup(msg.to)
-                    ki.sendText(msg.to,"Just some casual cleansing ô")
-                    kk.sendText(msg.to,"Group cleansed.")
-                    kc.sendText(msg.to,"Fuck You All")
+                    ki.sendText(msg.to,"Selamat Tinggal Semua!")
+                    kk.sendText(msg.to,"3")
+                    kk.sendText(msg.to,"2")
+                    kk.sendText(msg.to,"1")
+                    kc.sendText(msg.to,"Mulai")
                     targets = []
                     for g in gs.members:
                         if _name in g.displayName:
@@ -1701,6 +1706,7 @@ def bot(op):
                                     kicker=random.choice(klist)
                                     kicker.kickoutFromGroup(msg.to,[target])
                                     print (msg.to,[g.mid])
+                                    cl.sendText(msg.to,"Anda Akan Di Kick Dari Grup!",[target])
                                 except:
                                     ki.sendText(msg.to,"Kasian Di Kick....")
                                     kc.sendText(msg.to,"Hehehe")
@@ -1828,26 +1834,30 @@ def bot(op):
 				kc.sendText(msg.to,(bctxt))
 #-----------------------------------------------
 
-            elif msg.text in ["Cv say hi"]:
+            elif msg.text in ["Dito say hi"]:
                 ki.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
                 kk.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
                 kc.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
 
 #-----------------------------------------------
 
-            elif msg.text in ["Cv say hinata pekok"]:
+            elif msg.text in ["Dito say hinata pekok"]:
                 ki.sendText(msg.to,"Hinata pekok 􀜁􀅔Har Har􏿿")
                 kk.sendText(msg.to,"Hinata pekok 􀜁􀅔Har Har􏿿")
                 kc.sendText(msg.to,"Hinata pekok 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say didik pekok"]:
+            elif msg.text in ["Dito say navyra jelek"]:
+                ki.sendText(msg.to,"Navyra jelek 􀜁􀅔Har Har􏿿")
+                kk.sendText(msg.to,"Navyra jelek 􀜁􀅔Har Har􏿿")
+                kc.sendText(msg.to,"Navyra jelek 􀜁􀅔Har Har􏿿")
+            elif msg.text in ["Dito say didik pekok"]:
                 ki.sendText(msg.to,"Didik pekok 􀜁􀅔Har Har􏿿")
                 kk.sendText(msg.to,"Didik pekok 􀜁􀅔Har Har􏿿")
                 kc.sendText(msg.to,"Didik pekok 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say bobo ah","Bobo dulu ah"]:
+            elif msg.text in ["Dito say bobo ah","Bobo dulu ah"]:
                 ki.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
                 kk.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
                 kc.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say chomel pekok"]:
+            elif msg.text in ["Dito say chomel pekok"]:
                 ki.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
                 kk.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
                 kc.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
@@ -1876,7 +1886,7 @@ def bot(op):
       #-------------Fungsi Balesan Respon Finish---------------------#
 
        #-------------Fungsi Speedbot Start---------------------#
-            elif msg.text in ["Sp","Speedbot","speedbot"]:
+            elif msg.text in ["Sp","Speedbot","speedbot","Speed"]:
                 start = time.time()
                 cl.sendText(msg.to, "Waiting...")
                 elapsed_time = time.time() - start
